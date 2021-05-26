@@ -8,7 +8,7 @@
 
 /**
  标题：viewModel
- 作用：放置相关逻辑(业务,视图显示)及网络请求
+ 作用：放置相关逻辑(业务,视图显示)及网络请求，需要什么属性，自己按需求声明。
  */
 #import <Foundation/Foundation.h>
 #import "TestViewModel.h"

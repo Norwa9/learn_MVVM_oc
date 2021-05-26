@@ -6,6 +6,13 @@
 //  Copyright © 2017年 Joy. All rights reserved.
 //
 
+/*
+ viewController/View的作用：
+    1.接受用户操作user action
+    
+ 或者说：充当viewModel和view的胶水作用。
+ */
+
 #import "TestViewController.h"
 #import "TableDelegate.h"
 #import "TableDataSource.h"
@@ -48,6 +55,7 @@
     [tableView.mj_header beginRefreshing];
     //点击cell
     __weak typeof(tableViewModel) weakTableViewModel = tableViewModel;
+    //指定cell点击后的事件
     tableViewDelegate.cellClick = ^(TestViewModel *viewModel) {
         NSLog(@"点击cell");
         [weakTableViewModel gotoNextVCWithViewModel:viewModel];
@@ -99,6 +107,7 @@
  */
 - (void)headerRefreshAction {
     __weak typeof(tableViewModel) weakTableViewModel = tableViewModel;
+    //下拉刷新，获取到数据后，对tableView进行初始化
     [tableViewModel headerRefreshRequestWithCallback:^(NSArray<TestModel *> *models){
         weakTableViewModel.models = (NSMutableArray *)models;
         tableViewDataSource.viewModel = weakTableViewModel;
@@ -117,7 +126,7 @@
         weakTableViewModel.models = (NSMutableArray *)models;
         tableViewDataSource.viewModel = weakTableViewModel;
         tableViewDelegate.viewModel = weakTableViewModel;
-        [tableView.mj_header endRefreshing];
+        [tableView.mj_footer endRefreshing];
         [tableView reloadData];
         
     }];

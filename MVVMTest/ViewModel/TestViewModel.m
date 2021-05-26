@@ -5,7 +5,18 @@
 //  Created by Joy on 2017/8/26.
 //  Copyright © 2017年 Joy. All rights reserved.
 //
-
+/*
+ viewModel的作用：
+ 1.viewModel updates model。
+    headerRefreshRequestWithCallback:
+    footerRefreshRequestWithCallback:
+ 2.viewModel updates viewController/View。
+    gotoNextVCWithViewModel:
+    cellForRowAtIndexPath
+    numberOfRowsInSection
+ 
+ 或者说：处理相关逻辑（业务，视图显示）和网络请求，桥接model与viewController/view。
+ */
 #import "TestViewModel.h"
 #import "NextViewController.h"
 
@@ -47,6 +58,7 @@
                 }
                 NSString *string=[NSString stringWithFormat:@"    %@",vcName];
                 model.title=string;
+                self.model = model;
                 [arr addObject:model];
 
             }
@@ -69,20 +81,20 @@
                 TestModel *model=[[TestModel alloc] init];
                 if (i < 6) {
                     model.testEnum = 0;
-                    vcName = @"跳转到a";
+                    vcName = @"跳转到aaaa";
                 } else if ( i >= 6 && i < 10) {
                     model.testEnum = 1;
-                    vcName = @"跳转到b";
+                    vcName = @"跳转到bbbb";
                 }else{
                     model.testEnum = 2;
-                    vcName = @"跳转到c";
+                    vcName = @"跳转到cccc";
                 }
                 NSString *string=[NSString stringWithFormat:@"    %@",vcName];
                 model.title=string;
                 [arr addObject:model];
             }
             self.models = arr;
-            callback(self.models);
+            callback(self.models);//MVVM：viewModel更新viewController
         });
     });
 }

@@ -7,18 +7,47 @@
 //
 
 #import "NextViewController.h"
+#import "NextViewModel.h"
+#import "Masonry.h"
 
 @interface NextViewController ()
-
+@property(nonatomic,strong)UIButton* button;
 @end
 
-@implementation NextViewController
+@implementation NextViewController{
+    NextViewModel *nextViewModel;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUI];
+    // Do any additional setup after loading the view.
+}
+
+-(void)setUI{
     self.title = @"a";
     
-    // Do any additional setup after loading the view.
+    
+    [self.view addSubview: self.button];//调用_button的getter
+    [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(100, 100));
+    }];
+    /*
+     view(button)接收用户操作，然后view让viewModel(nextViewModel)去访问model获取数据
+     然后反过来viewModel对view(self.title)进行更新.
+     */
+    [self.button addTarget:self action:@selector(changeVCTitle) forControlEvents:UIControlEventTouchUpInside];
+    
+    nextViewModel = [NextViewModel new];
+}
+
+
+-(void)changeVCTitle{
+    [nextViewModel getNextVCTitleWithCallback:^(NextModel * _Nonnull model) {
+        self.title = model.vcTitle;
+//        NSLog(@"%@",model.vcTitle);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,14 +55,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Lazy
+    -(UIButton*)button{
+        if(!_button){
+            _button = [UIButton new];
+            [_button setTitle:@"更改VC标题" forState:UIControlStateNormal];
+            [_button setBackgroundColor:[UIColor greenColor]];
+            
+        }
+        return _button;
+    }
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

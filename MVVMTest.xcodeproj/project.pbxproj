@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BACE2B8265E4BF3005F570E /* NextViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BACE2B7265E4BF3005F570E /* NextViewModel.m */; };
+		1BACE2BB265E4BFC005F570E /* NextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BACE2BA265E4BFC005F570E /* NextModel.m */; };
 		32A969BC0510ABBD5168454B /* libPods-MVVMTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 196A8C9613346855740CDD58 /* libPods-MVVMTest.a */; };
 		A830032A1F54EF5300EAF487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A83003291F54EF5300EAF487 /* main.m */; };
 		A830032D1F54EF5300EAF487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A830032C1F54EF5300EAF487 /* AppDelegate.m */; };
@@ -46,6 +48,10 @@
 
 /* Begin PBXFileReference section */
 		196A8C9613346855740CDD58 /* libPods-MVVMTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MVVMTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BACE2B6265E4BF3005F570E /* NextViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NextViewModel.h; sourceTree = "<group>"; };
+		1BACE2B7265E4BF3005F570E /* NextViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NextViewModel.m; sourceTree = "<group>"; };
+		1BACE2B9265E4BFC005F570E /* NextModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NextModel.h; sourceTree = "<group>"; };
+		1BACE2BA265E4BFC005F570E /* NextModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NextModel.m; sourceTree = "<group>"; };
 		A83003251F54EF5300EAF487 /* MVVMTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A83003291F54EF5300EAF487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A830032B1F54EF5300EAF487 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -201,6 +207,8 @@
 			children = (
 				A83003651F54FEC000EAF487 /* TestModel.h */,
 				A83003661F54FEC000EAF487 /* TestModel.m */,
+				1BACE2B9265E4BFC005F570E /* NextModel.h */,
+				1BACE2BA265E4BFC005F570E /* NextModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +218,8 @@
 			children = (
 				A83003621F54FEAD00EAF487 /* TestViewModel.h */,
 				A83003631F54FEAD00EAF487 /* TestViewModel.m */,
+				1BACE2B6265E4BF3005F570E /* NextViewModel.h */,
+				1BACE2B7265E4BF3005F570E /* NextViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -260,7 +270,6 @@
 				A83003211F54EF5300EAF487 /* Sources */,
 				A83003221F54EF5300EAF487 /* Frameworks */,
 				A83003231F54EF5300EAF487 /* Resources */,
-				206DD32838B2FF951C91A3D8 /* [CP] Embed Pods Frameworks */,
 				FED1532FF6BCD82FAFE24A59 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -341,6 +350,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -384,21 +394,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		206DD32838B2FF951C91A3D8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MVVMTest/Pods-MVVMTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E6BAA54EC3397F68636B8439 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,16 +418,16 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MVVMTest/Pods-MVVMTest-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MVVMTest/Pods-MVVMTest-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MVVMTest/Pods-MVVMTest-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MVVMTest/Pods-MVVMTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -442,11 +437,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BACE2BB265E4BFC005F570E /* NextModel.m in Sources */,
 				A83003741F54FFB700EAF487 /* TableDelegate.m in Sources */,
 				A83003771F5500FB00EAF487 /* TestCell.m in Sources */,
 				A83003801F551D6800EAF487 /* ThirdViewController.m in Sources */,
 				A830036A1F54FEDB00EAF487 /* TestViewController.m in Sources */,
 				A83003301F54EF5300EAF487 /* ViewController.m in Sources */,
+				1BACE2B8265E4BF3005F570E /* NextViewModel.m in Sources */,
 				A83003671F54FEC000EAF487 /* TestModel.m in Sources */,
 				A830037A1F551B8600EAF487 /* NextViewController.m in Sources */,
 				A83003641F54FEAD00EAF487 /* TestViewModel.m in Sources */,
