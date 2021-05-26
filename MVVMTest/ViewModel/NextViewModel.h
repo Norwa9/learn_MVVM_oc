@@ -6,6 +6,10 @@
 //  Copyright © 2021 Joy. All rights reserved.
 //
 
+/*
+ NextViewModel用来处理NextViewController的业务逻辑
+ */
+
 #import <Foundation/Foundation.h>
 #import "NextModel.h"
 
