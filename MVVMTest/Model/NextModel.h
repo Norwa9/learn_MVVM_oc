@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NextModel : NSObject<NSCopying>
 
 @property (nonatomic,strong) NSString *vcTitle;
+@property (nonatomic,strong) NSString *bestHostName;
+@property (nonatomic,strong) NSString *luckyUserName;
 
 @end
 

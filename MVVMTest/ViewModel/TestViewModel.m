@@ -58,7 +58,6 @@
                 }
                 NSString *string=[NSString stringWithFormat:@"    %@",vcName];
                 model.title=string;
-                self.model = model;
                 [arr addObject:model];
 
             }

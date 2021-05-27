@@ -13,6 +13,8 @@
 - (nonnull id)copyWithZone:(nullable NSZone *)zone {
     NextModel *model = [NextModel new];
     model.vcTitle = _vcTitle;
+    model.bestHostName = _bestHostName;
+    model.luckyUserName = _luckyUserName;
     return model;
 }
 
